@@ -1,0 +1,3 @@
+public enum Tela {
+    ALGODON, LAICRA, PANA, CUERNO, LANA, GABARDINA;
+}

@@ -1,0 +1,3 @@
+public enum Color {
+    NEGRO, BLANCO, AZUL, AMARILLO, ROJO, NARAJA, ROSA, CELESTE, VERDE;
+}
