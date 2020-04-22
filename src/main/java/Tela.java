@@ -1,3 +1,4 @@
 public enum Tela {
-    ALGODON, LAICRA, PANA, CUERNO, LANA, GABARDINA;
+    algodon, hilo, lona, frisa, plastico, gabardina, cuero, lana, pique, acetato, rompeviento, poliester, microfibra, polar, oxford, franela, jean
+
 }

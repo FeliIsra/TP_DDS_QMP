@@ -4,39 +4,41 @@ import org.junit.Test;
 public class TestPrenda {
 
 
-    @Test
-    public void crearPrendaBien()throws Exception {
-        Prenda remeraMangaCortaNegraDeAlgodon = new PrendaFactory(Tela.ALGODON,
-                Color.NEGRO,
-                Color.AMARILLO,
-                Categoria.SUPERIOR,
-                TipoPrenda.REMERA_MANGA_CORTA
-                ).crearPrenda();
-        Assert.assertEquals(remeraMangaCortaNegraDeAlgodon.categoria(), Categoria.SUPERIOR);
-    }
+    Prenda remeraAlgodon;
+    Prenda pantalonNegro;
+    BuilderPrenda builder = new BuilderPrenda();
+    TipoPrenda remera = new TipoPrendaFactory().remera();
+    TipoPrenda pantalon = new TipoPrendaFactory().pantalon();
+
 
     @Test
-    public void crearPrendaSinColorSecundario() throws Exception{
-        Prenda remeraSinColorSecundario = new PrendaFactory(
-                Tela.ALGODON,
-                Color.AMARILLO,
-                null,
-                Categoria.SUPERIOR,
-                TipoPrenda.REMERA_MANGA_CORTA
-        ).crearPrenda();
-        Assert.assertEquals(remeraSinColorSecundario.colorSecundario(), null);
+    public void creaPrendaCorrectamente()throws Exception{
+        builder.setTipoPrenda(remera);
+        builder.setTela(Tela.algodon);
+        builder.setColorPrimario(Color.CELESTE);
+        builder.setTrama(Trama.lisa);
+        remeraAlgodon = builder.crearPrenda();
+        Assert.assertEquals(remeraAlgodon.categoria(), Categoria.SUPERIOR);
     }
 
-    @Test(expected = PrendaFactoryExpecion.class)
+    @Test(expected = CreadorPrendaException.class)
     public void noCreaPrendasConNull() throws Exception {
-        Prenda pantalonNegro = new PrendaFactory(null, null, null, null, null).crearPrenda();
+        builder.setTipoPrenda(pantalon);
+        builder.crearPrenda();
     }
 
-    @Test(expected = PrendaFactoryExpecion.class)
-    public void noCoincidenTipoPrendaYCategoria() throws  Exception{
-        Prenda pantalon = new PrendaFactory(Tela.ALGODON, Color.AMARILLO, Color.AZUL, Categoria.SUPERIOR, TipoPrenda.PANATALON).crearPrenda();
+    @Test(expected = CreadorPrendaException.class)
+    public void noCreaPrendasConNullColor() throws Exception {
+        builder.setTipoPrenda(pantalon);
+        builder.setTela(Tela.acetato);
+        builder.crearPrenda();
     }
 
+    @Test(expected = CreadorPrendaException.class)
+    public void telaNoDisponibleParaEseTipo() throws Exception{
+        builder.setTipoPrenda(pantalon);
+        builder.setTela(Tela.algodon);
+    }
 
 
 }
