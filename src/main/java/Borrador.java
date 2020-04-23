@@ -9,36 +9,44 @@ public class Borrador {
         return tipoPrenda;
     }
 
-    public void setTipoPrenda(TipoPrenda tipoPrenda) { this.tipoPrenda = tipoPrenda; }
+    public Borrador setTipoPrenda(TipoPrenda tipoPrenda) {
+        this.tipoPrenda = tipoPrenda;
+        return this;}
 
     public Tela getTela() {
         return tela;
     }
 
-    public void setTela(Tela tela) throws CreadorPrendaException {
+    public Borrador setTela(Tela tela) throws CreadorPrendaException {
         if(!this.getTipoPrenda().telasDisponibles().contains((tela))){
             throw new CreadorPrendaException("La tela elegida no puede usarse en este tipo de prenda");
         }
-        this.tela = tela; }
+        this.tela = tela;
+        return this;}
 
     public Color getColorPrimario() {
         return colorPrimario;
     }
 
-    public void setColorPrimario(Color colorPrimario) { this.colorPrimario = colorPrimario; }
+    public Borrador setColorPrimario(Color colorPrimario) {
+        this.colorPrimario = colorPrimario;
+        return this;}
 
     public Color getColorSecundario() {
         return colorSecundario;
     }
 
-    public void setColorSecundario(Color colorSecundario) { this.colorSecundario = colorSecundario; }
+    public Borrador setColorSecundario(Color colorSecundario) {
+        this.colorSecundario = colorSecundario;
+        return this;}
 
     public Trama getTrama() {
         return trama;
     }
 
-    public void setTrama(Trama trama) {
+    public Borrador setTrama(Trama trama) {
         this.trama = trama;
+        return this;
     }
 
     public Prenda crearPrenda() throws CreadorPrendaException { return new Prenda(this); }
