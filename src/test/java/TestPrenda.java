@@ -6,38 +6,38 @@ public class TestPrenda {
 
     Prenda remeraAlgodon;
     Prenda pantalonNegro;
-    BuilderPrenda builder = new BuilderPrenda();
+    Borrador borrador = new Borrador();
     TipoPrenda remera = new TipoPrendaFactory().remera();
     TipoPrenda pantalon = new TipoPrendaFactory().pantalon();
 
 
     @Test
     public void creaPrendaCorrectamente()throws Exception{
-        builder.setTipoPrenda(remera);
-        builder.setTela(Tela.algodon);
-        builder.setColorPrimario(Color.CELESTE);
-        builder.setTrama(Trama.lisa);
-        remeraAlgodon = builder.crearPrenda();
+        borrador.setTipoPrenda(remera);
+        borrador.setTela(Tela.algodon);
+        borrador.setColorPrimario(Color.CELESTE);
+        borrador.setTrama(Trama.lisa);
+        remeraAlgodon = borrador.crearPrenda();
         Assert.assertEquals(remeraAlgodon.categoria(), Categoria.SUPERIOR);
     }
 
     @Test(expected = CreadorPrendaException.class)
     public void noCreaPrendasConNull() throws Exception {
-        builder.setTipoPrenda(pantalon);
-        builder.crearPrenda();
+        borrador.setTipoPrenda(pantalon);
+        borrador.crearPrenda();
     }
 
     @Test(expected = CreadorPrendaException.class)
     public void noCreaPrendasConNullColor() throws Exception {
-        builder.setTipoPrenda(pantalon);
-        builder.setTela(Tela.acetato);
-        builder.crearPrenda();
+        borrador.setTipoPrenda(pantalon);
+        borrador.setTela(Tela.acetato);
+        borrador.crearPrenda();
     }
 
     @Test(expected = CreadorPrendaException.class)
     public void telaNoDisponibleParaEseTipo() throws Exception{
-        builder.setTipoPrenda(pantalon);
-        builder.setTela(Tela.algodon);
+        borrador.setTipoPrenda(pantalon);
+        borrador.setTela(Tela.algodon);
     }
 
 

@@ -13,7 +13,7 @@ public class TestGeneradorAtuendo {
     TipoPrenda pantalon;
     TipoPrenda lentes;
     TipoPrenda zapatillas;
-    BuilderPrenda builder;
+    Borrador borrador;
     TipoPrendaFactory tipoPrendaFactory;
     GeneradorAtuendos generadorDeAtuendos;
 
@@ -22,7 +22,7 @@ public class TestGeneradorAtuendo {
 
         generadorDeAtuendos = new GeneradorAtuendos();
 
-        builder = new BuilderPrenda();
+        borrador = new Borrador();
 
         tipoPrendaFactory = new TipoPrendaFactory();
 
@@ -32,34 +32,34 @@ public class TestGeneradorAtuendo {
         zapatillas = tipoPrendaFactory.zapatillas();
 
         //remeraNegra
-        builder.setTipoPrenda(remera);
-        builder.setTela(Tela.algodon);
-        builder.setColorPrimario(Color.NEGRO);
-        remeraNegra = builder.crearPrenda();
+        borrador.setTipoPrenda(remera);
+        borrador.setTela(Tela.algodon);
+        borrador.setColorPrimario(Color.NEGRO);
+        remeraNegra = borrador.crearPrenda();
 
         //remeraBlanca
-        builder.setTipoPrenda(remera);
-        builder.setTela(Tela.algodon);
-        builder.setColorPrimario(Color.BLANCO);
-        remeraBlanca = builder.crearPrenda();
+        borrador.setTipoPrenda(remera);
+        borrador.setTela(Tela.algodon);
+        borrador.setColorPrimario(Color.BLANCO);
+        remeraBlanca = borrador.crearPrenda();
 
         //pantalon
-        builder.setTipoPrenda(pantalon);
-        builder.setTela(Tela.gabardina);
-        builder.setColorPrimario(Color.NEGRO);
-        pantalonNegro = builder.crearPrenda();
+        borrador.setTipoPrenda(pantalon);
+        borrador.setTela(Tela.gabardina);
+        borrador.setColorPrimario(Color.NEGRO);
+        pantalonNegro = borrador.crearPrenda();
 
         //lentes
-        builder.setTipoPrenda(lentes);
-        builder.setTela(Tela.plastico);
-        builder.setColorPrimario(Color.NEGRO);
-        lentesDeSolNegros = builder.crearPrenda();
+        borrador.setTipoPrenda(lentes);
+        borrador.setTela(Tela.plastico);
+        borrador.setColorPrimario(Color.NEGRO);
+        lentesDeSolNegros = borrador.crearPrenda();
 
         //zapatillas
-        builder.setTipoPrenda(zapatillas);
-        builder.setTela(Tela.lona);
-        builder.setColorPrimario(Color.BLANCO);
-        zapatillasBlancas = builder.crearPrenda();
+        borrador.setTipoPrenda(zapatillas);
+        borrador.setTela(Tela.lona);
+        borrador.setColorPrimario(Color.BLANCO);
+        zapatillasBlancas = borrador.crearPrenda();
 
         felipe.addPrendas(remeraBlanca);
         felipe.addPrendas(remeraNegra);

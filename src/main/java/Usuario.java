@@ -5,7 +5,7 @@ import java.util.Set;
 public class Usuario {
 
     private Set<Prenda> prendas = new HashSet<>();
-    private BuilderPrenda borrador;
+    private Borrador borrador;
 
     public void addPrendas(Prenda prenda){
         prendas.add(prenda);
