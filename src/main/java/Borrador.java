@@ -4,6 +4,7 @@ public class Borrador {
     protected Color colorPrimario = null;
     protected Color colorSecundario = null;
     protected Trama trama = Trama.lisa;
+    protected int limiteTemperatura;
 
     public TipoPrenda getTipoPrenda() {
         return tipoPrenda;
@@ -46,6 +47,13 @@ public class Borrador {
 
     public Borrador setTrama(Trama trama) {
         this.trama = trama;
+        return this;
+    }
+
+    public int getLimiteTemperatura() { return limiteTemperatura; }
+
+    public Borrador setLimiteTemperatura(int limiteTemperatura){
+        this.limiteTemperatura = limiteTemperatura;
         return this;
     }
 

@@ -6,15 +6,18 @@ import java.util.Objects;
 public class Prenda extends Borrador {
 
     public Prenda(Borrador borrador) throws CreadorPrendaException {
-        validarAtributos(new ArrayList<>(Arrays.asList(borrador.getTipoPrenda(),
+        validarAtributos(new ArrayList<>(Arrays.asList(
+                borrador.getTipoPrenda(),
                 borrador.getTela(),
                 borrador.getColorPrimario(),
-                borrador.getTrama())));
+                borrador.getTrama(),
+                borrador.getLimiteTemperatura())));
         this.tipoPrenda = borrador.getTipoPrenda();
         this.tela = borrador.getTela();
         this.colorPrimario = borrador.getColorPrimario();
         this.colorSecundario = borrador.getColorSecundario();
         this.trama = borrador.getTrama();
+        this.limiteTemperatura = borrador.getLimiteTemperatura();
     }
 
     public Categoria categoria(){
