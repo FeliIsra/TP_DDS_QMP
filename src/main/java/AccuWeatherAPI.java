@@ -1,8 +1,8 @@
 import java.util.*;
 
-public final class AccuWeatherAPI implements TiempoAPI {
+public final class AccuWeatherAPI {
 
-    private final List<Map<String, Object>> getWeather(String ciudad) {
+    public final List<Map<String, Object>> getWeather(String ciudad) {
         return Arrays.asList(new HashMap(){{
             put("DateTime", "2019-05-03T01:00:00-03:00");
             put("EpochDateTime", 1556856000);
@@ -20,16 +20,5 @@ public final class AccuWeatherAPI implements TiempoAPI {
         }});
     }
 
-    @Override
-    public double temperatura(String ciudad) {
-        HashMap<String, Object> datos = (HashMap<String, Object>) this.getWeather(ciudad).get(0).get("Temperature");
-        int temperatura = (int) datos.get("Value");
-        return (temperatura - 32) * 5 / 9;
-    }
 
-
-    @Override
-    public double probabilidadaPrecipitaciones(String ciudad) {
-        return (double) this.getWeather(ciudad).get(0).get("PrecipitationProbability");
-    }
 }

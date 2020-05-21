@@ -50,7 +50,7 @@ public class GeneradorAtuendos {
 
     private boolean temperaturaValida(Prenda prenda){
 
-        TiempoAPI api = new AccuWeatherAPI();
+        ProveedorClima api = new ProveedorClimaAccuWeather();
         double temperatura = api.temperatura("Buenos Aires, Argentina");
 
         return prenda.getLimiteTemperatura() < temperatura;

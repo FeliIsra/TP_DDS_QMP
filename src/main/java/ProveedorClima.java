@@ -1,4 +1,4 @@
-public interface  TiempoAPI {
+public interface ProveedorClima {
 
     public double temperatura(String ciudad);
     public double probabilidadaPrecipitaciones(String ciudad);
