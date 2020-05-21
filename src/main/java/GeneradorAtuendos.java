@@ -1,14 +1,15 @@
 import com.google.common.collect.Sets;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GeneradorAtuendos {
 
     private static GeneradorAtuendos generadorAtuendos;
-    private ArrayList<Categoria> categoriasObligatorias = new ArrayList<>(Arrays.asList(Categoria.SUPERIOR, Categoria.INFERIOR, Categoria.CALZADO));
+    private ArrayList<Categoria> categoriasObligatorias = new ArrayList<>(Arrays.asList(
+            Categoria.SUPERIOR,
+            Categoria.INFERIOR,
+            Categoria.CALZADO));
 
     public static GeneradorAtuendos getSingletonInstance() {
         if(generadorAtuendos == null) {
@@ -39,5 +40,19 @@ public class GeneradorAtuendos {
 
     private Set<Set<Prenda>> filtrarAtuendosValidos(Set<Set<Prenda>> todasLasCombinaciones){
         return todasLasCombinaciones.stream().filter(this::esCombinacionValida).collect(Collectors.toSet());
+    }
+
+
+    private boolean validarTemperatura(Set<Prenda> prendas){
+        return  prendas.stream().allMatch(P -> this.temperaturaValida(P));
+    }
+
+
+    private boolean temperaturaValida(Prenda prenda){
+
+        TiempoAPI api = new AccuWeatherAPI();
+        double temperatura = api.temperatura("Buenos Aires, Argentina");
+
+        return prenda.getLimiteTemperatura() < temperatura;
     }
 }

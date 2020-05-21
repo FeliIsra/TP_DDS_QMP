@@ -9,15 +9,14 @@ import java.util.Map;
 
 public class TestAPIWheather {
 
-    AccuWeatherAPI apiClima = new AccuWeatherAPI();
-    List<Map<String, Object>> condicionesClimaticas = apiClima.getWeather("Buenos Aires, Argentina");
+    TiempoAPI apiClima = new AccuWeatherAPI();
 
 
 
-    // Probando si anda la clase AccuWeatherAPI
+    AccuWeatherAPI accuWeatherAPI = new AccuWeatherAPI();
+
     @Test
-    public void testeandoAndo(){
-
-        System.out.println(condicionesClimaticas.get(0));
+    public void obtieneLaTemperaturaCorrecta(){
+        Assert.assertEquals(13.8,accuWeatherAPI.temperatura("Buenos Aires, Argentina"),1);
     }
 }
