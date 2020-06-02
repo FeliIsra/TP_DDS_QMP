@@ -19,6 +19,4 @@ public class Usuario {
         this.addPrendas(borrador.crearPrenda());
     }
 
-
-
 }
