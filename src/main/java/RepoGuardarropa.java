@@ -3,7 +3,18 @@ import java.util.List;
 
 public class RepoGuardarropa {
 
-    List<Guardarropa> guardarropas = new ArrayList<>();
+    private static RepoGuardarropa single_instance = null;
+    private List<Guardarropa> guardarropas;
+
+    private RepoGuardarropa(){ }
+
+    public static RepoGuardarropa getInstance(){
+        if(single_instance == null){
+            single_instance = new RepoGuardarropa();
+        }
+
+        return single_instance;
+    }
 
     public void addGuardarropa(Guardarropa guardarropa){ guardarropas.add(guardarropa); }
 

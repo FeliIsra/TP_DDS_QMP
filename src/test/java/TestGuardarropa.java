@@ -1,7 +1,8 @@
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import sun.misc.ASCIICaseInsensitiveComparator;
+
+import java.util.ArrayList;
 
 public class TestGuardarropa {
 
@@ -67,7 +68,7 @@ public class TestGuardarropa {
         guardarropa.addPropuesta(agregarRemera);
         guardarropa.addPropuesta(agregarPantalon);
         guardarropa.aplicarPropuestas();
-        guardarropa.deshacerPropuestas();
+        guardarropa.desaplicarPropuestas();
         Assert.assertEquals(guardarropa.getPrendas().size(), 0);
     }
 
@@ -75,7 +76,7 @@ public class TestGuardarropa {
     public void DeshacerPropuestaDeAgregar() {
         guardarropa.addPropuesta(agregarPantalon);
         guardarropa.aplicarPropuestas();
-        guardarropa.deshacerPropuestas();
+        guardarropa.desaplicarPropuestas();
         Assert.assertEquals(guardarropa.getPrendas().size(), 0);
     }
 
@@ -84,7 +85,7 @@ public class TestGuardarropa {
         guardarropa.addPrenda(remeraAlgodon);
         guardarropa.addPropuesta(eliminarRemera);
         guardarropa.aplicarPropuestas();
-        guardarropa.deshacerPropuestas();
+        guardarropa.desaplicarPropuestas();
         Assert.assertEquals(guardarropa.getPrendas().size(), 1);
     }
 }

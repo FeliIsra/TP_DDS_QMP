@@ -26,7 +26,7 @@ public class Guardarropa {
         propuestasAceptadas.addAll(propuestas);
     }
 
-    public void deshacerPropuestas(){
+    public void desaplicarPropuestas(){
         propuestasAceptadas.stream().forEach(p -> p.desaplicar(this));
         propuestasAceptadas.removeAll(propuestasAceptadas);
     }
